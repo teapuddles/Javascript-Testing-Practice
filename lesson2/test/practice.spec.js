@@ -2,11 +2,6 @@
 const practice = require('../practice')
 const assert = require('assert')
 
-const result = practice(1, 3)
-const expected = 4
-
-assert.equal(result, expected)
-
 // structure test with describe
 describe('the practice function', () => {
     it('adds two numbers', () => {
