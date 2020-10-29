@@ -1,5 +1,3 @@
-
-@@ -0,0 +1,20 @@
 module.exports = [{
         id: 1,
         age: 22,
