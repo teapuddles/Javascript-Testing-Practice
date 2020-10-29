@@ -28,3 +28,29 @@ describe('The findUserByEmail function', () => {
 //          assert.equal(actual, expected)         
 //      })
 //  })
+
+// ====================================================
+// A second way to test an async function is to 
+// return a promise from the it function
+
+// when you return a promise from a test (jest jasmine mocha), the test
+// runner will wait for the promise to resolve before ending the test
+// when you use the done function, it waits until you call done. 
+describe ('The findUserByEmail function', () => {
+    it('finds a user by email (Using the return promise method)', () => {
+        return findUserByEmail('bahdcoder@gmail.com').then((response) => {
+            assert.equal(response.message, 'User found successfully.')
+        })
+    })
+})
+
+// =====================
+// A final way to test async functions is to use async await
+
+describe ('The findUserByEmail function', () => {
+    it('finds a user by email (using async/await)', async() => {
+        const response = await findUserByEmail('bahdcoder@gmail.com')
+        // waits for the promise to resolve before moving to the assertion
+        assert.equal(response.message, 'User found successfully.')
+    })
+})
