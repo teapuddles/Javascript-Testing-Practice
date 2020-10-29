@@ -10,3 +10,14 @@ describe('The stringify function', () => {
         assert.equal(actual, expected)
     })
 }) 
+
+describe('The parse function', () => {
+    it('should parse a query String into an object', () => {
+        const actual = parse('?by=Kevin-Gleeson')
+        const expected = { by: 'Kevin-Gleeson'}
+
+        assert.deepEqual(actual, expected)
+    })
+})
+
+// Testing Asynchronous Functions 
