@@ -1,6 +1,7 @@
 // imported 
 const practice = require('../practice')
-const assert = require('assert')
+// assert requirement for mocha
+// const assert = require('assert')
 
 // structure test with describe
 describe('the practice function', () => {
@@ -8,7 +9,10 @@ describe('the practice function', () => {
         const actual = practice(1, 3)
         const expected = 4
 
-        assert.equal(actual, expected)
+        // jest
+        expect(actual).toBe(expected)
+        // mocha with assert library
+        // assert.equal(actual, expected)
     })
 })
 
