@@ -66,5 +66,19 @@ describe ('The findUserByEmail function', () => {
     })
 })
 
+describe('The findUserById function', () => {
+    it('should find a user by id', async () => {
+        const response = await findUserById(1)
+
+        assert.equal(response.message, 'User found successfully.') 
+    })
+    it('rejects and posts error if user with id is not found', () => {
+        return findUserById(10).then(() => {
+            assert.fail('Expected findUserById function to reject')
+        }, error => {
+            assert.equal(error.message, 'User with id: 10 was not found.')
+        })
+    })
+})
 
 // MAKE SURE YOUR TEST ASSERTIONS ARE SUCCESSFUL!``
