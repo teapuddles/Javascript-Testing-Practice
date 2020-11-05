@@ -53,4 +53,18 @@ describe ('The findUserByEmail function', () => {
         // waits for the promise to resolve before moving to the assertion
         assert.equal(response.message, 'User found successfully.')
     })
+    it('rejects and posts error if user with email isnt found.', () => {
+        // to test rejected promises, use the RETURN PROMISE METHOD
+        return findUserByEmail('x@y.com').then(() => {
+            // .then takes in two parts, Fullfilled and Rejected. Because this promise isn't
+            // supposed to resolve, we are going to assert a failure.
+            assert.fail('Expected findUserByEmail function to reject')
+        }, error => {
+            // the error here is the second argument for our .then
+            assert.equal(error.message, 'User with email: x@y.com was not found.')
+        })
+    })
 })
+
+
+// MAKE SURE YOUR TEST ASSERTIONS ARE SUCCESSFUL!``
